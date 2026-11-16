@@ -3,400 +3,406 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#17414f">
+<meta name="theme-color" content="#f7f5ef">
 <title>我们与学校合作的一点说明</title>
 <style>
   :root{
-    --ink:#14232b;
-    --ink-2:#3d4f57;
-    --teal:#17414f;
-    --teal-2:#1d5468;
-    --cream:#f6f1e6;
-    --paper:#fbf9f4;
-    --rust:#94402a;
-    --line:#ddd5c6;
-    --line-2:#e8e1d4;
-    --ok:#2f6b4f;
-    --r:2px;
+    --paper:#f7f5ef;
+    --ink:#211f1c;
+    --ink-soft:#4a463f;
+    --muted:#8c8479;
+    --hair:#ded7c9;
+    --hair-soft:#e9e3d7;
+    --accent:#8a4a33;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html,body{margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
   body{
-    background:var(--paper);
-    color:var(--ink);
+    margin:0;background:var(--paper);color:var(--ink);
     font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
-    font-size:16px;
-    line-height:1.75;
-    -webkit-text-size-adjust:100%;
-    padding-bottom:env(safe-area-inset-bottom);
+    font-size:16px;line-height:1.9;
+    padding-bottom:calc(48px + env(safe-area-inset-bottom));
+    -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:720px;margin:0 auto;padding:0 18px 56px}
-  h1,h2,h3,.num{font-family:"Songti SC","STSong","Source Han Serif SC",serif}
+  .page{max-width:680px;margin:0 auto;padding:0 22px}
 
-  /* ---------- 刊头 ---------- */
-  header.top{
-    background:var(--teal);
-    color:#f4efe3;
-    margin:0;
-    padding:26px 18px 20px;
-    position:relative;
+  /* 刊头 */
+  .masthead{padding:46px 0 0}
+  .masthead .org{
+    display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+    font-size:11px;letter-spacing:.18em;color:var(--muted);
   }
-  header.top h1{
-    font-size:23px;line-height:1.4;margin:0 0 10px;font-weight:700;letter-spacing:.5px;
+  .masthead .org span:last-child{letter-spacing:.1em}
+  .masthead .rule{height:1px;background:var(--ink);opacity:.55;margin:14px 0 0}
+  .masthead h1{
+    font-family:"Songti SC","STSong",serif;
+    font-size:25px;line-height:1.55;font-weight:600;
+    letter-spacing:.04em;margin:32px 0 0;
   }
-  header.top .sub{
-    font-size:12.5px;letter-spacing:.08em;color:#c8d8dd;margin:0;
-  }
-  header.top .sub b{color:#f4efe3;font-weight:600}
-
-  /* ---------- 四个数 ---------- */
-  .stats{
-    display:grid;grid-template-columns:1fr 1fr;
-    background:var(--cream);
-    border-bottom:1px solid var(--line);
-    margin:0;
-  }
-  .stat{
-    padding:16px 14px 15px;
-    border-right:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    text-align:center;
-    appearance:none;background:none;border-top:0;border-left:0;
-    font:inherit;color:inherit;cursor:pointer;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    min-height:96px;transition:background .18s;
-  }
-  .stat:nth-child(2n){border-right:0}
-  .stat:nth-child(n+3){border-bottom:0}
-  .stat:active{background:#efe7d5}
-  .stat .num{font-size:27px;color:var(--rust);font-weight:700;line-height:1.1;letter-spacing:1px}
-  .stat .t{font-size:13px;color:var(--ink);margin-top:6px;font-weight:600}
-  .stat .d{font-size:11.5px;color:#7b8a90;margin-top:2px;line-height:1.5}
-
-  /* ---------- 目录 ---------- */
-  .toc{
-    display:flex;gap:8px;overflow-x:auto;padding:16px 0 6px;
-    scrollbar-width:none;-webkit-overflow-scrolling:touch;
-  }
-  .toc::-webkit-scrollbar{display:none}
-  .toc a{
-    flex:0 0 auto;
-    display:inline-flex;align-items:center;
-    min-height:40px;padding:0 14px;
-    border:1px solid var(--line);
-    border-radius:999px;
-    color:var(--ink-2);text-decoration:none;
-    font-size:13px;white-space:nowrap;background:#fff;
-  }
-  .toc a:active{background:var(--cream)}
-
-  /* ---------- 折叠块 ---------- */
-  details.sec{
-    border-top:1px solid var(--line);
-    padding:0;
-  }
-  details.sec > summary{
-    list-style:none;cursor:pointer;
-    display:flex;align-items:flex-start;gap:12px;
-    padding:17px 4px 16px;
-    min-height:56px;
-  }
-  details.sec > summary::-webkit-details-marker{display:none}
-  details.sec > summary .no{
-    font-family:"Songti SC",serif;font-size:12px;color:var(--rust);
-    letter-spacing:.12em;padding-top:5px;min-width:26px;
-  }
-  details.sec > summary .h{
-    flex:1;font-family:"Songti SC","STSong",serif;
-    font-size:18.5px;font-weight:700;line-height:1.45;letter-spacing:.3px;
-  }
-  details.sec > summary .chev{
-    flex:0 0 auto;width:22px;height:22px;margin-top:3px;
-    border:1px solid var(--line);border-radius:50%;
-    position:relative;transition:transform .22s ease;
-  }
-  details.sec > summary .chev::before,
-  details.sec > summary .chev::after{
-    content:"";position:absolute;background:var(--ink-2);border-radius:1px;
-  }
-  details.sec > summary .chev::before{width:9px;height:1.5px;left:6px;top:10px}
-  details.sec > summary .chev::after{width:1.5px;height:9px;left:9.7px;top:6px;transition:opacity .2s}
-  details.sec[open] > summary .chev{transform:rotate(180deg);background:var(--teal);border-color:var(--teal)}
-  details.sec[open] > summary .chev::before{background:#fff}
-  details.sec[open] > summary .chev::after{opacity:0}
-  .body{padding:2px 4px 22px 38px;animation:fade .22s ease}
-  @keyframes fade{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
-  @media (prefers-reduced-motion:reduce){.body{animation:none}details.sec > summary .chev{transition:none}}
-
-  /* ---------- 条目 ---------- */
-  .row{padding:11px 0;border-bottom:1px dashed var(--line-2)}
-  .row:last-child{border-bottom:0}
-  .row .k{font-weight:700;font-size:15.5px;color:var(--ink)}
-  .row .v{font-size:14.5px;color:var(--ink-2);margin-top:3px}
-  .row .v em{font-style:normal;color:var(--rust);font-weight:600}
-
-  ul.plain{margin:6px 0 0;padding-left:18px}
-  ul.plain li{font-size:14.5px;color:var(--ink-2);margin:7px 0}
-  ul.plain li b{color:var(--ink)}
-
-  .lead{font-size:15px;color:var(--ink);margin:0 0 10px}
-  .lead .xl{
-    display:block;font-family:"Songti SC",serif;
-    font-size:19px;font-weight:700;color:var(--ink);
-    margin-bottom:6px;line-height:1.5;
+  @media (min-width:420px){.masthead h1{font-size:28px}}
+  .masthead .sub{margin:16px 0 0;font-size:13px;color:var(--muted);letter-spacing:.06em;line-height:2}
+  .masthead .to{
+    margin:6px 0 0;font-size:11.5px;color:var(--ink-soft);letter-spacing:.14em;
   }
 
-  /* ---------- 四档 ---------------------------- */
-  .steps{display:grid;gap:10px;margin-top:4px}
-  .step{
-    border:1px solid var(--line);border-radius:var(--r);
-    background:#fff;overflow:hidden;
+  /* 数字 */
+  .figures{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    margin:46px 0 0;
+    border-top:1px solid var(--hair);border-left:1px solid var(--hair-soft);
   }
-  .step > summary{
-    list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;
-    padding:13px 14px;min-height:56px;
+  .fig{
+    appearance:none;background:none;border:0;font:inherit;color:inherit;
+    text-align:left;cursor:pointer;padding:20px 14px 18px;
+    border-bottom:1px solid var(--hair);border-right:1px solid var(--hair-soft);
+    min-height:96px;
   }
-  .step > summary::-webkit-details-marker{display:none}
-  .step .n{font-family:"Songti SC",serif;font-size:15px;color:var(--rust);letter-spacing:.08em}
-  .step .st{flex:1;font-size:15px;font-weight:700}
-  .step .st span{display:block;font-weight:400;font-size:12.5px;color:#7b8a90;margin-top:1px}
-  .step .plus{
-    width:20px;height:20px;border:1px solid var(--line);border-radius:50%;position:relative;flex:0 0 auto;
+  .fig .n{
+    display:block;font-family:"Songti SC",serif;font-size:28px;line-height:1.1;
+    color:var(--ink);white-space:nowrap;
   }
-  .step .plus::before,.step .plus::after{content:"";position:absolute;background:var(--ink-2);border-radius:1px}
-  .step .plus::before{width:8px;height:1.5px;left:5.5px;top:9px}
-  .step .plus::after{width:1.5px;height:8px;left:9.2px;top:5.7px;transition:opacity .2s}
-  .step[open] .plus{background:var(--rust);border-color:var(--rust)}
-  .step[open] .plus::before{background:#fff}
-  .step[open] .plus::after{opacity:0}
-  .step .sb{padding:0 14px 14px;font-size:14px;color:var(--ink-2)}
-  .step .sb p{margin:0 0 8px}
-  .step .sb p:last-child{margin-bottom:0}
-  .step .cost{font-size:12.5px;color:var(--rust)}
+  .fig .n small{font-size:13px;color:var(--ink-soft);letter-spacing:.04em}
+  .fig .t{display:block;font-size:11.5px;color:var(--muted);margin-top:10px;letter-spacing:.06em;line-height:1.75}
+  .fig:active{opacity:.5}
+  @media (min-width:560px){
+    .figures{grid-template-columns:repeat(4,1fr)}
+    .fig{padding:22px 14px 20px}
+  }
 
-  /* ---------- 提示条 ---------- */
-  .note{
-    background:var(--cream);border-radius:var(--r);
-    padding:13px 15px;font-size:14px;color:var(--ink-2);margin:14px 0 0;
+  /* 目录 */
+  .index{
+    margin:26px 0 0;padding:16px 0 0;border-top:1px solid var(--hair-soft);
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:0 4px;
+    font-size:12.5px;line-height:2.2;color:var(--muted);
   }
-  .note b{color:var(--ink)}
+  .index .k{letter-spacing:.2em;margin-right:10px;font-size:10.5px}
+  .index a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid transparent;padding:2px 0}
+  .index a:active{border-bottom-color:var(--muted)}
+  .index .sep{color:var(--hair);margin:0 6px}
+  .tools{margin-left:auto;display:flex;gap:14px;font-size:11.5px}
+  .tools button{
+    appearance:none;background:none;border:0;padding:2px 0;font:inherit;color:var(--muted);
+    cursor:pointer;border-bottom:1px solid transparent;font-size:11.5px;
+  }
+  .tools button:active{color:var(--ink)}
 
-  /* ---------- 结尾 ---------- */
-  .end{
-    text-align:center;padding:38px 0 8px;border-top:1px solid var(--line);margin-top:26px;
+  /* 章节 */
+  section.sec{border-top:1px solid var(--hair);margin-top:34px}
+  section.sec > button.head{
+    appearance:none;background:none;border:0;width:100%;text-align:left;font:inherit;color:inherit;
+    cursor:pointer;display:grid;grid-template-columns:38px 1fr 18px;align-items:start;
+    padding:22px 0 20px;
   }
-  .end .big{
-    font-family:"Songti SC",serif;font-size:20px;font-weight:700;color:var(--teal);
-    letter-spacing:1px;line-height:1.6;
+  .sec .idx{font-family:"Songti SC",serif;font-size:11px;letter-spacing:.14em;color:var(--accent);padding-top:8px}
+  .sec h2{
+    font-family:"Songti SC","STSong",serif;margin:0;
+    font-size:19px;font-weight:600;line-height:1.55;letter-spacing:.04em;
   }
-  .end .org{font-size:13.5px;color:var(--ink-2);margin-top:16px;line-height:2}
-  .end .org b{color:var(--ink)}
-  .end .org .tel{
-    color:var(--rust);font-weight:700;text-decoration:none;
-    border-bottom:1px solid rgba(148,64,42,.35);padding-bottom:1px;
+  .sec .hint{
+    display:block;font-size:12px;color:var(--muted);letter-spacing:.02em;
+    margin-top:6px;font-family:"PingFang SC",system-ui,sans-serif;font-weight:400;line-height:1.85;
   }
-  .end .org .tel:active{opacity:.6}
-  .foot{font-size:11.5px;color:#8d9aa0;line-height:1.8;margin-top:22px}
-  .toolbar{
-    display:flex;justify-content:flex-end;gap:8px;padding:14px 0 0;
+  .sign{position:relative;width:12px;height:12px;margin-top:9px;justify-self:end;transition:transform .25s ease}
+  .sign::before,.sign::after{content:"";position:absolute;background:var(--ink-soft);opacity:.65}
+  .sign::before{width:12px;height:1px;top:5.5px;left:0}
+  .sign::after{width:1px;height:12px;top:0;left:5.5px;transition:opacity .25s}
+  section.sec.open .sign{transform:rotate(135deg)}
+  section.sec.open .sign::after{opacity:0}
+  @media (prefers-reduced-motion:reduce){.sign{transition:none}}
+
+  .panel{display:none;padding:0 0 26px 38px}
+  section.sec.open .panel{display:block;animation:fade .28s ease}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @media (prefers-reduced-motion:reduce){section.sec.open .panel{animation:none}}
+
+  .kv{display:grid;grid-template-columns:5em 1fr;gap:2px 14px;padding:13px 0;border-bottom:1px solid var(--hair-soft)}
+  .kv:last-child{border-bottom:0}
+  .kv dt{font-size:12px;color:var(--muted);letter-spacing:.08em;padding-top:4px}
+  .kv dd{margin:0;font-size:14.5px;color:var(--ink-soft);line-height:1.95}
+  .kv dd em{font-style:normal;color:var(--ink);box-shadow:inset 0 -1px 0 rgba(138,74,51,.45)}
+
+  .statement{
+    font-family:"Songti SC",serif;font-size:19px;line-height:1.85;
+    letter-spacing:.02em;margin:4px 0 18px;color:var(--ink);font-weight:600;
   }
-  .toolbar button{
-    font:inherit;font-size:12.5px;color:var(--ink-2);
-    background:#fff;border:1px solid var(--line);border-radius:999px;
-    padding:8px 13px;min-height:36px;cursor:pointer;
+  .statement .q{color:var(--muted);font-weight:400}
+  .statement.plain{font-size:15px;font-weight:400;line-height:2;color:var(--ink-soft);letter-spacing:.01em}
+
+  ol.notes{list-style:none;margin:0;padding:0;counter-reset:n}
+  ol.notes li{
+    counter-increment:n;position:relative;padding:0 0 14px 30px;
+    font-size:14.5px;color:var(--ink-soft);line-height:1.95;
   }
-  .toolbar button:active{background:var(--cream)}
+  ol.notes li::before{
+    content:counter(n,decimal-leading-zero);position:absolute;left:0;top:2px;
+    font-family:"Songti SC",serif;font-size:11px;color:var(--accent);letter-spacing:.06em;
+  }
+
+  /* 合作方式 */
+  .ways{margin:6px 0 0;border-top:1px solid var(--hair-soft)}
+  .way{border-bottom:1px solid var(--hair-soft)}
+  .way > button{
+    appearance:none;background:none;border:0;width:100%;text-align:left;font:inherit;color:inherit;
+    cursor:pointer;display:grid;grid-template-columns:26px 1fr 16px;gap:12px;align-items:start;
+    padding:16px 0;
+  }
+  .way .num{font-family:"Songti SC",serif;font-size:11px;color:var(--accent);letter-spacing:.1em;padding-top:7px}
+  .way .name{font-size:15px;font-weight:600;line-height:1.7;letter-spacing:.02em}
+  .way .name span{display:block;font-weight:400;font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:.02em}
+  .way .sign{width:11px;height:11px;margin-top:10px}
+  .way .sign::before{width:11px;top:5px}
+  .way .sign::after{height:11px;left:5px}
+  .way.open .sign{transform:rotate(135deg)}
+  .way.open .sign::after{opacity:0}
+  .way .desc{display:none;padding:0 0 18px 38px;font-size:14px;color:var(--ink-soft);line-height:1.95}
+  .way.open .desc{display:block}
+  .way .desc p{margin:0 0 10px}
+  .way .desc p:last-child{margin-bottom:0}
+  .way .meta{
+    font-size:11.5px;color:var(--muted);letter-spacing:.06em;
+    border-top:1px dashed var(--hair);padding-top:11px;margin-top:16px;line-height:2;
+  }
+  .way .meta span{display:block}
+  .way .meta b{color:var(--ink-soft);font-weight:500;letter-spacing:.1em;margin-right:8px}
+
+  .caveat{
+    margin:26px 0 0;padding:16px 0 0;border-top:1px solid var(--hair);
+    font-size:12.5px;color:var(--muted);line-height:2;
+  }
+  .caveat b{color:var(--ink-soft);font-weight:600;letter-spacing:.04em}
+
+  .closing{margin:52px 0 0;padding:34px 0 0;border-top:1px solid var(--ink);text-align:center}
+  .closing .line{font-family:"Songti SC",serif;font-size:18.5px;line-height:2;letter-spacing:.06em;color:var(--ink)}
+  .closing .who{margin:24px 0 0;font-size:12.5px;color:var(--muted);line-height:2.2;letter-spacing:.04em}
+  .closing .who b{color:var(--ink-soft);font-weight:600}
+  .closing .who a{color:var(--ink-soft);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(33,31,28,.25)}
+  .fineprint{margin:30px 0 0;font-size:10.5px;line-height:1.9;color:#a39a8c;text-align:left;letter-spacing:.02em}
 </style>
 </head>
 <body>
+<div class="page">
 
-<header class="top">
-  <h1>我们与学校合作的一点说明</h1>
-  <p class="sub">云南飞得很文化传媒 · 望见云平台 · <b>2026 年 11 月</b></p>
-</header>
+  <header class="masthead">
+    <div class="org">
+      <span>云南飞得很文化传媒有限公司</span>
+      <span>2026 · 11</span>
+    </div>
+    <div class="rule"></div>
+    <h1>我们与学校合作的一点说明</h1>
+    <p class="sub">望见云创作者平台　联合作品与教学实践</p>
+    <p class="to">致　学院与合作单位</p>
+  </header>
 
-<div class="stats" role="list">
-  <button class="stat" data-go="s1" role="listitem">
-    <span class="num">20 年</span>
-    <span class="t">影视制作</span>
-    <span class="d">从策划到成片</span>
-  </button>
-  <button class="stat" data-go="s2" role="listitem">
-    <span class="num">数百部</span>
-    <span class="t">宣传片、广告片</span>
-    <span class="d">微电影与短片</span>
-  </button>
-  <button class="stat" data-go="s2" role="listitem">
-    <span class="num">2 项</span>
-    <span class="t">金鸡手机电影计划</span>
-    <span class="d">公安部微电影大赛</span>
-  </button>
-  <button class="stat" data-go="s4" role="listitem">
-    <span class="num">1 个</span>
-    <span class="t">已上线创作者平台</span>
-    <span class="d">望见云</span>
-  </button>
-</div>
-
-<div class="wrap">
-
-  <nav class="toc" aria-label="快速跳转">
-    <a href="#s1">能接的活</a>
-    <a href="#s2">拿得出手的</a>
-    <a href="#s3">攒下的判断</a>
-    <a href="#s4">不一样的三点</a>
-    <a href="#s5">关于飞得很</a>
-    <a href="#s6">怎么开始</a>
-  </nav>
-
-  <div class="toolbar">
-    <button id="expandAll" type="button">全部展开</button>
-    <button id="collapseAll" type="button">全部收起</button>
+  <div class="figures">
+    <button class="fig" data-go="s1">
+      <span class="n">20<small> 年</small></span>
+      <span class="t">影视制作<br>覆盖策划至成片</span>
+    </button>
+    <button class="fig" data-go="s2">
+      <span class="n">数百<small> 部</small></span>
+      <span class="t">宣传片、广告片<br>微电影与短片</span>
+    </button>
+    <button class="fig" data-go="s2">
+      <span class="n">2<small> 项</small></span>
+      <span class="t">金鸡手机电影计划<br>公安部微电影大赛</span>
+    </button>
+    <button class="fig" data-go="s5">
+      <span class="n">1<small> 个</small></span>
+      <span class="t">自有创作者平台<br>望见云</span>
+    </button>
   </div>
 
-  <details class="sec" id="s1" open>
-    <summary><span class="no">一</span><span class="h">能接的活</span><span class="chev"></span></summary>
-    <div class="body">
-      <div class="row"><div class="k">片子</div><div class="v">宣传片、纪录片、短片、微电影，从策划一路到成片。</div></div>
-      <div class="row"><div class="k">活动</div><div class="v">展映、论坛、毕业展的预告、拍摄、直播、回顾片。</div></div>
-      <div class="row"><div class="k">学生</div><div class="v">实操讲座、作品诊断、参赛陪跑。</div></div>
-      <div class="row"><div class="k">出口</div><div class="v">作品在望见云展示传播，可参加平台创作大赛。</div></div>
-      <div class="row"><div class="k">产品</div><div class="v">非遗文创的设计、打样与量产。</div></div>
-    </div>
-  </details>
+  <nav class="index">
+    <span class="k">目录</span>
+    <a href="#s1" data-go="s1">业务范围</a><span class="sep">/</span>
+    <a href="#s2" data-go="s2">资历与奖项</a><span class="sep">/</span>
+    <a href="#s3" data-go="s3">专业判断</a><span class="sep">/</span>
+    <a href="#s4" data-go="s4">我们的差异</a><span class="sep">/</span>
+    <a href="#s5" data-go="s5">关于飞得很</a><span class="sep">/</span>
+    <a href="#s6" data-go="s6">合作方式</a>
+    <span class="tools"><button id="allOpen" type="button">展开</button><button id="allClose" type="button">收起</button></span>
+  </nav>
 
-  <details class="sec" id="s2">
-    <summary><span class="no">二</span><span class="h">拿得出手的</span><span class="chev"></span></summary>
-    <div class="body">
-      <div class="row"><div class="k">二十年</div><div class="v">影视积累，宣传片、广告片、微电影与短片数百部。</div></div>
-      <div class="row"><div class="k">金鸡</div><div class="v">《放生》获 2021 金鸡手机电影计划<em>「最佳实验影片荣誉」</em>。</div></div>
-      <div class="row"><div class="k">公安部</div><div class="v">《大山小事》获<em>公安部微电影大赛一等奖</em>。</div></div>
-      <div class="row"><div class="k">AIGC</div><div class="v">参与筷子兄弟《逍遥仙》官方第 3 版 MV 共创。</div></div>
-      <div class="row"><div class="k">平台</div><div class="v">望见云已上线，首届瓦猫主题创作大赛进行中。</div></div>
+  <section class="sec open" id="s1">
+    <button class="head" type="button">
+      <span class="idx">01</span>
+      <span><h2>业务范围</h2></span>
+      <span class="sign"></span>
+    </button>
+    <div class="panel">
+      <dl class="kv"><dt>影视制作</dt><dd>宣传片、纪录片、短片、微电影，覆盖策划、拍摄至成片的完整流程。</dd></dl>
+      <dl class="kv"><dt>活动影像</dt><dd>展映、论坛、毕业展的先导片、现场拍摄、直播与回顾片。</dd></dl>
+      <dl class="kv"><dt>教学支持</dt><dd>实操课程、作品诊断、赛事辅导。</dd></dl>
+      <dl class="kv"><dt>作品发布</dt><dd>作品可在望见云平台展示与传播，并可参与平台主办的创作赛事。</dd></dl>
+      <dl class="kv"><dt>文创产品</dt><dd>非物质文化遗产相关的设计、打样与量产。</dd></dl>
     </div>
-  </details>
+  </section>
 
-  <details class="sec" id="s3">
-    <summary><span class="no">三</span><span class="h">二十年攒下的判断</span><span class="chev"></span></summary>
-    <div class="body">
-      <p class="lead"><span class="xl">不是「会用 AI」，是知道什么算好。</span></p>
-      <ul class="plain">
-        <li><b>哪一步 AI 真能省时间，哪一步替不了。</b></li>
-        <li><b>客户不认的时候，问题出在脚本、节奏，还是那一刀。</b></li>
-        <li><b>AI 省的是时间，不省判断。判断是这二十年攒的。</b></li>
-      </ul>
+  <section class="sec" id="s2">
+    <button class="head" type="button">
+      <span class="idx">02</span>
+      <span><h2>资历与奖项</h2></span>
+      <span class="sign"></span>
+    </button>
+    <div class="panel">
+      <dl class="kv"><dt>行业积累</dt><dd>二十年影视制作经验，累计完成宣传片、广告片、微电影及短片数百部。</dd></dl>
+      <dl class="kv"><dt>金鸡</dt><dd>《放生》获 2021 年金鸡手机电影计划<em>「最佳实验影片荣誉」</em>。</dd></dl>
+      <dl class="kv"><dt>公安部</dt><dd>《大山小事》获<em>公安部微电影大赛一等奖</em>。</dd></dl>
+      <dl class="kv"><dt>AIGC</dt><dd>参与筷子兄弟《逍遥仙》官方第 3 版 MV 联合创作。</dd></dl>
+      <dl class="kv"><dt>自有平台</dt><dd>望见云创作者平台已上线，首届瓦猫主题创作大赛正在进行。</dd></dl>
     </div>
-  </details>
+  </section>
 
-  <details class="sec" id="s4">
-    <summary><span class="no">四</span><span class="h">跟同行不一样的三点</span><span class="chev"></span></summary>
-    <div class="body">
-      <div class="row">
-        <div class="k">AI 的位置</div>
-        <div class="v">别人当工具，我们嵌进流程：前期关键帧与样片预演，中期拍摄，后期多版本。立项阶段就能先看见。</div>
-      </div>
-      <div class="row">
-        <div class="k">交付的东西</div>
-        <div class="v">别人交一部片子就走，我们交片子也交方法，跟着做完的人下次自己能做。</div>
-      </div>
-      <div class="row">
-        <div class="k">能力的面</div>
-        <div class="v">别人只有制作，我们有<em>制作、平台、产品三条线</em>：作品有地方放，创意能落成实物。</div>
-      </div>
+  <section class="sec" id="s3">
+    <button class="head" type="button">
+      <span class="idx">03</span>
+      <span><h2>专业判断</h2></span>
+      <span class="sign"></span>
+    </button>
+    <div class="panel">
+      <p class="statement">我们的价值不在<span class="q">「会使用 AI」</span>，<br>而在于判断什么才算好。</p>
+      <ol class="notes">
+        <li>清楚哪一环节 AI 可以切实提升效率，哪一环节无法替代人工。</li>
+        <li>当成片未达预期时，能够定位问题出在脚本、节奏，还是剪辑。</li>
+        <li>AI 节省的是时间，不能替代判断；判断来自二十年的创作经验。</li>
+      </ol>
     </div>
-  </details>
+  </section>
 
-  <details class="sec" id="s5">
-    <summary><span class="no">五</span><span class="h">关于飞得很</span><span class="chev"></span></summary>
-    <div class="body">
-      <p class="lead">不是一家刚学 AI 的制作公司，是一家做了二十年的制作公司，把 AI 接进了自己的流程。</p>
-      <div class="row"><div class="k">班底是自己的</div><div class="v">导演、摄影、剪辑、调色在自己手里，不接一手转一手。二十年的片场习惯，落在成片的每一处。</div></div>
-      <div class="row"><div class="k">全流程不出门</div><div class="v">脚本、分镜、拍摄、剪辑、调色、字幕包装内部闭环，减少沟通损耗，也守得住交片时间。</div></div>
-      <div class="row"><div class="k">奖项是实证</div><div class="v">金鸡手机电影计划的荣誉、公安部微电影大赛一等奖，都在公开赛事里，可查。</div></div>
-      <div class="row"><div class="k">AIGC 真在用</div><div class="v">不是拿 AI 做 PPT 演示，是参与过官方商业 MV 的共创，知道它在哪一环节会掉链子。</div></div>
-      <div class="row"><div class="k">有自己的出口</div><div class="v">望见云创作者平台已上线，作品不只是交上去存档，还能被看见、能参赛、能沉淀成学生的履历。</div></div>
-      <div class="row"><div class="k">在云南本地</div><div class="v">本地拍摄资源、场地、演员与非遗手作渠道直连，外省团队要重新摸的路，我们已经在上面走了二十年。</div></div>
-      <div class="row"><div class="k">能讲也能带</div><div class="v">讲座讲的是实操和踩过的坑，不是概念；带学生是从诊断到投递，一路跟到结果。</div></div>
+  <section class="sec" id="s4">
+    <button class="head" type="button">
+      <span class="idx">04</span>
+      <span><h2>我们的差异</h2></span>
+      <span class="sign"></span>
+    </button>
+    <div class="panel">
+      <dl class="kv"><dt>AI 的定位</dt><dd>业内多将 AI 视为单点工具，我们将其纳入制作流程：前期用于关键帧与样片预演，中期配合拍摄，后期支持多版本输出。项目立项阶段即可看到画面。</dd></dl>
+      <dl class="kv"><dt>交付内容</dt><dd>除成片之外，同时交付方法与流程；项目结束后，参与方能够独立完成同类工作。</dd></dl>
+      <dl class="kv"><dt>业务结构</dt><dd>多数机构仅提供制作服务；我们具备<em>制作、平台、产品三条业务线</em>，作品有发布渠道，创意可转化为实体产品。</dd></dl>
     </div>
-  </details>
+  </section>
 
-  <details class="sec" id="s6">
-    <summary><span class="no">六</span><span class="h">怎么开始：从轻到重四档</span><span class="chev"></span></summary>
-    <div class="body">
-      <p class="lead">方向由学院定，我们跟着走；下面四种由轻到重，任何一种都可以作为起点。</p>
-      <div class="steps">
-        <details class="step">
-          <summary><span class="n">01</span><span class="st">一场活动的影像支持<span>预告、拍摄、直播、回顾片</span></span><span class="plus"></span></summary>
-          <div class="sb">
-            <p>学院一场现成的活动，我们出人出设备，把预告、现场拍摄、直播和回顾片一次做齐。</p>
-            <p>最轻的起点：不占课时、不改教学计划，先看一次成片质量。</p>
-            <p class="cost">周期：随活动走　交付：预告 + 现场 + 回顾</p>
+  <section class="sec" id="s5">
+    <button class="head" type="button">
+      <span class="idx">05</span>
+      <span><h2>关于飞得很</h2></span>
+      <span class="sign"></span>
+    </button>
+    <div class="panel">
+      <p class="statement plain">我们并非以 AI 起步的技术团队，而是一家具备二十年影视制作经验、并已将 AI 系统纳入制作流程的文化传媒公司。</p>
+      <dl class="kv"><dt>自有团队</dt><dd>导演、摄影、剪辑与调色均为公司自有人员，项目不层层转包；二十年形成的创作标准贯穿成片始终。</dd></dl>
+      <dl class="kv"><dt>内部闭环</dt><dd>脚本、分镜、拍摄、剪辑、调色与字幕包装在公司内部完成，沟通成本低，交片周期可控。</dd></dl>
+      <dl class="kv"><dt>奖项可查</dt><dd>金鸡手机电影计划的荣誉与公安部微电影大赛一等奖，均出自公开赛事评审，可查证。</dd></dl>
+      <dl class="kv"><dt>AIGC</dt><dd>AI 已应用于商业 MV 的正式创作，对其在各环节的适用边界有实际判断，而非概念演示。</dd></dl>
+      <dl class="kv"><dt>发布平台</dt><dd>望见云创作者平台已上线。作品不仅交付存档，更可公开展示、参与赛事，并沉淀为学生的实践履历。</dd></dl>
+      <dl class="kv"><dt>本地资源</dt><dd>公司位于云南，长期合作的拍摄资源、场地、演员与非物质文化遗产手作渠道稳定，可减少异地团队的磨合成本。</dd></dl>
+      <dl class="kv"><dt>教学能力</dt><dd>课程以实操与项目经验为主，辅导从作品诊断延伸至赛事投递，覆盖完整链路。</dd></dl>
+    </div>
+  </section>
+
+  <section class="sec" id="s6">
+    <button class="head" type="button">
+      <span class="idx">06</span>
+      <span><h2>合作方式</h2><span class="hint">合作方向由学院确定，我方配合执行；以下四种由轻至重，均可作为起点</span></span>
+      <span class="sign"></span>
+    </button>
+    <div class="panel">
+      <div class="ways">
+        <div class="way">
+          <button type="button">
+            <span class="num">01</span>
+            <span class="name">活动影像支持<span>先导片、现场拍摄、直播、回顾片</span></span>
+            <span class="sign"></span>
+          </button>
+          <div class="desc">
+            <p>依托学院既有活动，我方提供人员与设备，完成先导片、现场拍摄、直播及回顾片。</p>
+            <p>该形式不占用课时、不改变教学计划，可先行评估成片质量，是投入最轻的合作起点。</p>
+            <p class="meta"><span><b>周期</b>随活动安排</span><span><b>交付</b>先导片、现场记录、回顾片</span></p>
           </div>
-        </details>
-        <details class="step">
-          <summary><span class="n">02</span><span class="st">一场学生实操讲座<span>两小时，讲实操，带案例</span></span><span class="plus"></span></summary>
-          <div class="sb">
-            <p>两小时，讲的是手上功夫：一条片子在哪个点会崩、AI 在哪一步能替人、样片怎么在拍摄前就看出问题。</p>
-            <p>带真实案例和成片对比，学生听完当天就能改自己的作业。</p>
-            <p class="cost">周期：一次两小时　交付：讲座 + 课后答疑</p>
+        </div>
+        <div class="way">
+          <button type="button">
+            <span class="num">02</span>
+            <span class="name">学生实操讲座<span>两课时，以实操与案例为主</span></span>
+            <span class="sign"></span>
+          </button>
+          <div class="desc">
+            <p>两课时课程，内容为实际操作：成片在哪些环节容易出问题，AI 在哪些环节可替代人工，如何通过样片在拍摄前发现问题。</p>
+            <p>配合真实案例与成片对比，学生可在课后直接用于自身作业的修改。</p>
+            <p class="meta"><span><b>周期</b>一次两课时</span><span><b>交付</b>讲座与课后答疑</span></p>
           </div>
-        </details>
-        <details class="step">
-          <summary><span class="n">03</span><span class="st">学生作品参赛陪跑<span>选赛、诊断、修改、投递</span></span><span class="plus"></span></summary>
-          <div class="sb">
-            <p>从选赛事开始：哪个比赛值得投、按什么标准评。再看学生现有的作品，指出改哪三处就能上一个档。</p>
-            <p>改完帮着投，投完复盘。目标是手里真的多一张证书。</p>
-            <p class="cost">周期：按赛季走　交付：诊断报告 + 修改建议 + 投递</p>
+        </div>
+        <div class="way">
+          <button type="button">
+            <span class="num">03</span>
+            <span class="name">学生作品参赛辅导<span>赛事选择、作品诊断、修改、投递</span></span>
+            <span class="sign"></span>
+          </button>
+          <div class="desc">
+            <p>自赛事选择开始：明确各赛事的评审标准与适配方向；针对学生现有作品提出具体修改建议；协助完成投递并复盘结果。</p>
+            <p>目标是为学生积累可查验的赛事成果。</p>
+            <p class="meta"><span><b>周期</b>按赛季安排</span><span><b>交付</b>作品诊断、修改建议、投递协助</span></p>
           </div>
-        </details>
-        <details class="step">
-          <summary><span class="n">04</span><span class="st">课题或项目共创<span>学院立项，我们出指导与执行</span></span><span class="plus"></span></summary>
-          <div class="sb">
-            <p>学院立项，我们出指导与执行：从选题、样片到成片，把教学成果做成能拿出手的作品或产品。</p>
-            <p>最重的一档，也是最能留下东西的一档——成果可以进课题、进展览、进平台。</p>
-            <p class="cost">周期：按项目走　交付：成片 + 过程文档</p>
+        </div>
+        <div class="way">
+          <button type="button">
+            <span class="num">04</span>
+            <span class="name">课题与项目共创<span>学院立项，我方承担指导与执行</span></span>
+            <span class="sign"></span>
+          </button>
+          <div class="desc">
+            <p>学院立项，我方承担指导与执行：从选题、样片至成片，将教学成果转化为可对外展示的作品或产品。</p>
+            <p>该形式投入最重，成果可支撑课题、展览与平台发布。</p>
+            <p class="meta"><span><b>周期</b>按项目安排</span><span><b>交付</b>成片与过程文档</span></p>
           </div>
-        </details>
+        </div>
       </div>
 
-      <div class="note">
-        <b>有一件事先说清楚：</b>我们提供方法、执行和指导，不含算力与设备投入，平台目前也还没有解决算力成本。先讲明白，免得后面误会。
-      </div>
+      <p class="caveat"><b>合作说明　</b>我方提供方法、执行与指导，不含算力与设备投入；平台目前亦未承担算力成本。特此说明，以免后续产生误解。</p>
     </div>
-  </details>
+  </section>
 
-  <section class="end">
-    <div class="big">先做一件，做完再谈下一步。</div>
-    <div class="org">
-      云南飞得很文化传媒有限公司 · 望见云创作者平台<br>
-      联系人：<b>杨光</b>　<a href="tel:18787261033" class="tel">18787261033</a>
-    </div>
-    <p class="foot">荣誉口径：《放生》为 2021 年金鸡手机电影计划「最佳实验影片荣誉」；《大山小事》为公安部微电影大赛一等奖（年份与届次待核）。</p>
+  <section class="closing">
+    <p class="line">建议先行推进一个项目，<br>验证效果后再确定后续合作范围。</p>
+    <p class="who">
+      云南飞得很文化传媒有限公司　·　望见云创作者平台<br>
+      联系人　<b>杨光</b>　<a href="tel:18787261033">18787261033</a>
+    </p>
+    <p class="fineprint">荣誉口径　《放生》为 2021 年金鸡手机电影计划「最佳实验影片荣誉」；《大山小事》为公安部微电影大赛一等奖（年份与届次待核）。</p>
   </section>
 
 </div>
 
 <script>
 (function(){
-  var secs = document.querySelectorAll('details.sec');
+  var secs = [].slice.call(document.querySelectorAll('section.sec'));
 
-  function openById(id){
+  secs.forEach(function(s){
+    s.querySelector('.head').addEventListener('click', function(){
+      s.classList.toggle('open');
+    });
+  });
+
+  document.querySelectorAll('.way > button').forEach(function(b){
+    b.addEventListener('click', function(){ b.parentNode.classList.toggle('open'); });
+  });
+
+  function go(id){
     var el = document.getElementById(id);
     if(!el) return;
-    el.open = true;
-    var y = el.getBoundingClientRect().top + window.pageYOffset - 12;
+    el.classList.add('open');
+    var y = el.getBoundingClientRect().top + window.pageYOffset - 10;
     window.scrollTo({top:y, behavior:'smooth'});
   }
-
-  document.querySelectorAll('.stat').forEach(function(b){
-    b.addEventListener('click', function(){ openById(b.dataset.go); });
+  document.querySelectorAll('[data-go]').forEach(function(el){
+    el.addEventListener('click', function(e){ e.preventDefault(); go(el.dataset.go); });
   });
 
-  document.getElementById('expandAll').addEventListener('click', function(){
-    secs.forEach(function(d){ d.open = true; });
+  document.getElementById('allOpen').addEventListener('click', function(){
+    secs.forEach(function(s){ s.classList.add('open'); });
   });
-  document.getElementById('collapseAll').addEventListener('click', function(){
-    secs.forEach(function(d){ d.open = false; });
+  document.getElementById('allClose').addEventListener('click', function(){
+    secs.forEach(function(s){ s.classList.remove('open'); });
     window.scrollTo({top:0, behavior:'smooth'});
   });
 })();
